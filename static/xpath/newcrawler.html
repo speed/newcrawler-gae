@@ -1,0 +1,256 @@
+<html>
+<head>
+<link type='text/css' rel='stylesheet' href='../static/xpath/mark.css' />
+
+<link type='text/css' rel='stylesheet' href='//cdn.newcrawler.com/static/js/datetimepicker-master/jquery.datetimepicker.css' />
+<link type='text/css' rel='stylesheet' href='//cdn.newcrawler.com/static/js/clockpicker/dist/jquery-clockpicker.min.css' />
+
+<script type="text/javascript" src="//cdn.newcrawler.com/static/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="//cdn.newcrawler.com/static/js/datetimepicker-master/jquery.datetimepicker.min.js"></script>
+<script type="text/javascript" src="//cdn.newcrawler.com/static/js/clockpicker/dist/jquery-clockpicker.js"></script>
+<script type="text/javascript" src="//cdn.newcrawler.com/static/js/zeroclipboard-2.1.6/ZeroClipboard.min.js"></script>
+<script type="text/javascript" src="//cdn.newcrawler.com/static/js/jsonrpc-min.js"></script>
+
+<script type="text/javascript" src="../static/js/main.crawldata.log-min.js"></script>
+<script type="text/javascript" src="../static/js/main.logsview.console-min.js"></script>
+
+<script type="text/javascript" src="../static/xpath/depend.js"></script>
+<script type="text/javascript" src="../static/xpath/mark-min.js?v2.2"></script>
+
+</head>
+<body style="padding: 0px; margin: 0px; overflow: hidden;">
+<div class="ncx_toolbar_cover">
+</div>
+<div id="ncx_toolbar">
+	<div class="ncx_toolbar_logo" style="float:left;">
+		<a href="//www.newcrawler.com"><img alt="New Crawler" src="//cdn.newcrawler.com/static/images/newcrawler-logo2.png" width="170"></a>
+	</div>
+	
+	<div style="margin-left: 200px">
+	<div class="ncx-toolbar-section ncx-datatypes" style="display: inline-block; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);">    
+		<a lang="1" class="ncx-label ncx-data-dot ncx-yellow active">
+			<span class="ncx-count">0</span>
+			<span class="ncx-delete-datatype" style="display: none;"></span>
+		</a>    
+		<a lang="0" class="ncx-toolbar-button ncx-pagination ncx-data-dot" title="Pagination" style="display: inline-block; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"></a>
+		
+		<div class="ncx-cron-dot" >
+		<a lang="" class="ncx-toolbar-button ncx-cron ncx-data-dot" title="Cron" style="display: inline-block; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"></a>
+		
+		<div class="ncx-cron-config">
+		
+		<input id="ncx-cron-id"  type="hidden" >
+		<span class="ncx-poptip-arrow ncx-poptip-arrow-top"><em>◆</em><i>◆</i></span>
+		
+		<div style="padding-top: 10px;">
+		<div style="float:left;width:60px;height: 30px;line-height:30px;">
+		<a href="javascript:void(0)" title="Date is empty，Every HH:mm run. Date is 0000-00-00，Daily HH:mm run." style="text-decoration: underline;">Date</a>
+		</div>
+		<div style="padding-left:60px;height: 35px;line-height:35px;">
+		<input id="ncx-cron-date"  type="text" value="0000-00-00" placeholder="yyyy-MM-dd"  style="height: 30px;"></div>
+		</div>
+		
+		<div style="padding-top: 10px;">
+		<div style="float:left;width:60px;height: 35px;line-height:35px;">Time</div>
+		<div style="padding-left:60px;height: 30px;line-height:30px;">
+		<input id="ncx-cron-time"  type="text" class="form-control" value="" placeholder="HH:mm" style="height: 30px;" readonly>
+		</div>
+		</div>
+		
+		
+		</div>
+		</div>
+		
+		<div class="ncx-setting-dot" >
+		<a lang="" class="ncx-toolbar-button ncx-setting ncx-data-dot" title="Setting" style="display: inline-block; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"></a>
+		
+		<div class="ncx-setting-config">
+		<span class="ncx-poptip-arrow ncx-poptip-arrow-top"><em>◆</em><i>◆</i></span>
+		
+		<div style="padding-top: 10px;">
+		<div style="float:left;width:60px;height: 35px;line-height:35px;">Charset</div>
+		<div style="padding-left:60px;height: 30px;line-height:30px;">
+		<select id="ncx-charset-select" style="height: 30px;">
+			<option value=""></option>
+			<option value="UTF-8">UTF-8</option>
+			<option value="GBK">GBK</option>
+			<option value="GB2312">GB2312</option>
+		</select>
+		
+		<input id="ncx-charset"  type="text" style="height: 30px;">
+		</div>
+		</div>
+		
+		<div style="padding-top: 10px;">
+		<div style="float:left;width:60px;height: 35px;line-height:35px;">Headers</div>
+		<div style="padding-left:60px;height: 30px;line-height:30px;">
+		<textarea id="ncx-headers"  style="height: 120px; width: 100%;"></textarea>
+		</div>
+		</div>
+		
+		</div>
+		</div>
+		<a class="ncx-new-datatype" title="New Datatype" style="display:none;"></a> 
+	</div>
+	
+	<div class="ncx-toolbar-section">      
+	<button class="ncx-toolbar-button-primary ncx ncx-button ncx-save">Save</button>
+	</div>
+	<div class="ncx-toolbar-section">      
+	<button class="ncx-toolbar-button-primary ncx ncx-button ncx-view">View</button>
+	<span class="ncx-poptip-arrow view-pop" style="display:none;top: 32px;height: 0.3em;width: 1em;"><em>◆</em><i>◆</i></span>
+	</div>
+	<div class="ncx-toolbar-section msg">  
+	    
+	</div>
+	<div class="ncx-toolbar-section ">      
+		<input type="text" id="url" value="" style="height:30px;line-height:30px;width:300px;" readonly="readonly"/>
+	</div>
+	
+	<div class="ncx-toolbar-section ncx-js" title="Load JavaScript" style="float:right;">
+	<span style="padding-top: 1px; position: absolute;">
+	<input type="hidden" id="ncx-pluginId"/> 
+	<input type="checkbox" name="ncx-isJs" class="isJavaScript" value="true"/> 
+	</span>
+	<a href="javascript:void(0);" title="Can't find the data you want?" style="margin-left: 20px;padding-top: 10px;">Load JavaScript</a>
+	</div>
+	</div>
+	
+	
+</div>
+
+
+<div id="ncx_toolview">
+	
+	<div class="ncx-content-top">
+		<div class="ncx-content-top-data">
+		<table class="ncx_data_list">
+		</table>
+				
+		</div>
+		<div class="ncx-content-top-btn">
+		<button class="ncx-toolbar-button-primary ncx ncx-button ncx-prevPage">Prev</button>
+		<button class="ncx-toolbar-button-primary ncx ncx-button ncx-nextPage">Next</button>
+		<button class="ncx-toolbar-button-primary ncx ncx-button ncx-refresh">Refresh</button>
+		<button class="ncx-toolbar-button-primary ncx ncx-button ncx-run">Run</button>
+		<button class="ncx-toolbar-button-primary ncx ncx-button ncx-export">Export</button>
+		</div>
+		<div class="ncx-content-top-export" style="display:none;">
+		<span class="ncx-poptip-arrow view-pop" style="display:none;left: 20%;top: -21px;height: 0.4em;width: 1em;"><em>◆</em><i>◆</i></span>
+		<a class="ncx-export-csv ncx-export-icon ncx-download" href="javascript:void(0);" target="_blank">
+		
+		</a>
+		<a class="ncx-export-plotly ncx-export-icon " href="javascript:void(0);" target="_blank">
+		
+		</a>
+		<a class="ncx-export-coding ncx-export-icon" href="javascript:void(0);" target="_blank">
+		
+		</a>
+		</div>
+	</div>
+	
+	<div class="ncx-content-bottom">
+		<a href="javascript:void(0);" class="ncx-crawlDataLog-a"></a>
+		<div id="ncx-crawlDataLog" style="display:none;">
+		<table id="ncx-crawlDataLogList" width="100%" align="center" class="table_border2 tableList" style="border:1px solid #CCCCCC;border-collapse:collapse;background-color: #FFFFFF;">
+			<tr>
+				<th width="25" nowrap bgcolor="whiteSmoke"></th>
+				<th width="25" nowrap bgcolor="whiteSmoke">ID</th>
+				<th width="60" nowrap bgcolor="whiteSmoke">Task</th>
+				<th width="60" nowrap bgcolor="whiteSmoke">Speed</th>
+				<th width="120" nowrap bgcolor="whiteSmoke">CreateTime</th>
+				<th width="120" nowrap bgcolor="whiteSmoke">CompleteTime</th>
+				<th width="120" nowrap bgcolor="whiteSmoke">CostTime</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">QueueIn</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">QueueOut</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">Running</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">Exception</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">Empty</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">Count</th>
+				<th width="65" nowrap bgcolor="whiteSmoke">Deploy</th>
+				<th width="80" nowrap bgcolor="whiteSmoke">Status</th>
+				<th width="120" nowrap bgcolor="whiteSmoke">Progressbar</th>
+				
+				<th width="80" nowrap bgcolor="whiteSmoke">Action</th>
+			</tr>
+		</table>
+		</div>
+		<a href="javascript:void(0);" class="downloadCsv" style="display:none;" target="_blank"><span>download csv</span></a>
+		<a href="javascript:void(0);" class="logsViewConsole"></a>
+		<DIV class="logsViewConsoleWindow" style="display:none;">
+			<div class="logs">
+				<table style="table-layout: fixed;width:100%;border: 0;border-collapse: collapse;"><tbody>
+				<tr><td width="150"></td><td width="100"></td><td width="100"></td><td style="max-width:50%;"></td><td style="max-width:20%;"></td></tr>
+				</tbody></table>
+			</div>
+		</DIV>
+	</div>
+</div>
+<div id="newcrawler-selector">
+
+</div>
+<iframe id="newcrawler" name="newcrawler" lang='#{url}' style='display: block; width: 100%; border: 0px; height: 100%'></iframe>
+
+<script>
+#{js}
+
+var newcrawler_refresh=null; 
+if(window.opener){
+	try{
+		newcrawler_refresh=window.opener.refreshCrawlRules;
+	}catch(e){}
+}
+
+nc = {};
+nc["i18n"]=function(key, params){
+  var msg='';
+  if (_i18n[key] == 'undefined') {
+    return '__' + key + '__';
+  } else {
+    msg= _i18n[key];
+  }
+  if(typeof(params)=='object' && (params instanceof Array)){
+  	for(i=0,len=params.length;i<len;i++){
+  		var regex='{'+i+'}';
+  		msg=msg.replace(regex, params[i]);
+  	}
+  }else{
+  	var regex='{0}';
+  	msg=msg.replace(regex, params);
+  }
+  return msg;
+};
+var _i18n = {
+  'res.not.select.crawler' : 'Not crawler'
+, 'res.logs.type.crawl' : 'Fetch'
+, 'res.logs.type.crawl.retry' : 'Retry'
+, 'res.logs.type.deploy' : 'Deploy'
+, 'res.logs.type.deploy.retry' : 'Deploy retry'
+, 'res.logs.type.download' : 'Download'
+, 'res.logs.type.download.retry' : 'Download Retry'
+, 'res.console.min' : 'Min'
+, 'res.console.max' : 'Max'
+, 'res.console.resize' : 'Resize'
+	
+, 'res.scheduledTasks.name1' : 'Fetch'
+, 'res.scheduledTasks.name2' : 'Checker'
+, 'res.scheduledTasks.name3' : 'Publish Data'
+, 'res.scheduledTasks.name4' : 'Remove'
+, 'res.scheduledTasks.name5' : 'Update URL'
+	
+, 'res.background.statistics' : 'Statistics'
+, 'res.background.statistics.failure' : 'Statistics Failure'
+, 'res.task.run.success' : 'Success'
+, 'res.task.run.failure' : 'Failure'
+, 'res.task.stop.success' : 'Success'
+, 'res.task.stop.failure' : 'Failure'
+, 'res.task.run' : 'Run'
+, 'res.task.stop' : 'Stop'
+, 'res.exception.url.list' : 'List'
+, 'res.page.prev' : 'prev'
+, 'res.page.next' : 'next'
+	};
+	
+</script>
+</body>
+</html>
