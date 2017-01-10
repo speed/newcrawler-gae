@@ -14,7 +14,7 @@
     <datastore-index kind="Crawler_CrawlUrlTable" ancestor="false">
         <property name="siteId" direction="asc"/>
         <property name="url" direction="asc"/>
-        <property name="createDate" direction="desc"/>
+        <property name="createDate" direpin2Sidebarction="desc"/>
     </datastore-index>
     
     <datastore-index kind="Crawler_CrawlUrlTable" ancestor="false">
